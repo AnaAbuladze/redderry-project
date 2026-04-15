@@ -1,0 +1,45 @@
+$brand-Yellow: (
+  purple: (
+    50: #EEEDFC,
+    100: #DDDBFA,
+    200: #B7B3F4,
+    300: #958FEF,
+    400: #736BEA,
+    500: #4F46E5,
+    600: #281ED2,
+    700: #1E169D,
+    800: #130E67,
+    900: #0A0836,
+    950: #05041B
+  )
+);
+
+$greyscale: (
+  grey: (
+    50: #FFFFFF,
+    100: #F5F5F5,
+    200: #D1D1D1,
+    300: #ADADAD,
+    400: #8A8A8A,
+    500: #666666,
+    600: #525252,
+    700: #3D3D3D,
+    800: #292929,
+    900: #141414,
+    950: #0A0A0A
+  )
+);
+
+$helper: (
+  error: (
+    main: #F4161A,
+    light: #F66466
+  ),
+  warning: (
+    main: #F4A316
+  ),
+  success: (
+    main: #1DC31D,
+    light: rgba(#1DC31D, 0.1)
+  )
+);
