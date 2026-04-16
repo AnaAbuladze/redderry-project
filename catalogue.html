@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Courses Catalog</title>
+  <link rel="stylesheet" href="scss/main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+</head>
+
+<body>
+ <div class="header-banner">
+    <header class="container">
+      <div class="logo-img">
+        <img src="imgs/logo.svg" alt="logo">
+      </div>
+      <nav class="nav-actions bodyL">
+        <div class="guest-actions" id="guestActions">
+          <a href="catalogue.html" class="nav-link">
+            <span class="material-icons">auto_awesome</span>
+            Browse Courses
+          </a>
+          <div class="btn-group">
+            <button class="btn-login buttonM" onclick="openModal('loginModal')">Log In</button>
+            <button class="btn-signup buttonM" onclick="openRegister()">Sign Up</button>
+          </div>
+        </div>
+        <div class="auth-actions" id="authActions" style="display:none;">
+          <div class="links">
+            <a href="catalogue.html" class="nav-link">
+              <span class="material-icons">auto_awesome</span>
+              Browse Courses
+            </a>
+            <a href="#" class="nav-link">
+              <span class="material-icons">menu_book</span>
+              Enrolled Courses
+            </a>
+            <div class="avatar" onclick="openProfileModal()">
+              <img src="imgs/User.svg" alt="user" class="user-img" id="navAvatar">
+              <span class="notification-dot" id="profileIndicator"></span>
+            </div>
+          </div>
+      </nav>
+    </header>
+  </div>
+  <div class="modal-overlay" id="loginModal" onclick="onLoginOverlayClick(event)">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('loginModal')">
+        <span class="material-icons">close</span>
+      </button>
+      <div class="modal-main">
+        <div class="modal-header">
+          <h2 class="heading-2">Welcome Back</h2>
+          <p class="modal-subtitle bodyXS">Log in to continue learning</p>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label bodyXS">Email</label>
+            <input type="email" class="form-input bodyXS" id="loginEmail" placeholder="you@example.com">
+            <div class="error-message helper-regularS" id="emailError"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label bodyXS">Password</label>
+            <div class="input-wrapper">
+              <input type="password" class="form-input bodyXS" id="loginPassword" placeholder="Password">
+              <span class="input-icon" onclick="togglePassword('loginPassword', this)">
+                <img src="imgs/openeye.svg" alt="">
+              </span>
+              <div class="error-message helper-regularS" id="passwordError"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn-primary btn-full bodyS" onclick="handleLogin()">Log In</button>
+      <div class="modal-footer">
+        <div class="modal-divider bodyS"><span>or</span></div>
+        <p class="modal-switch bodyXS">
+          Don't have an account?
+          <a href="#" onclick="switchModal('loginModal','registerModal'); openRegister()">Sign Up</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="modal-overlay" id="registerModal" onclick="onRegisterOverlayClick(event)">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('registerModal')">
+        <span class="material-icons">close</span>
+      </button>
+      <button class="modal-back" id="registerBack" onclick="registerPrev()" style="display:none;">
+        <img src="imgs/back.svg" alt="">
+      </button>
+      <div class="modal-main">
+        <div class="modal-header">
+          <h2 class="heading-2">Create Account</h2>
+          <p class="modal-subtitle bodyXS">Join and start learning today</p>
+        </div>
+        <div class="register-stepper">
+          <div class="step-bar active" id="step-bar-1"></div>
+          <div class="step-bar inactive" id="step-bar-2"></div>
+          <div class="step-bar inactive" id="step-bar-3"></div>
+        </div>
+        <div class="modal-body" id="reg-step-1">
+          <div class="form-group">
+            <label class="form-label bodyXS">Email*</label>
+            <input type="email" class="form-input bodyXS" id="regEmail" placeholder="you@example.com">
+            <div class="error-message helper-regularS" id="regEmailError"></div>
+          </div>
+        </div>
+        <div class="modal-body" id="reg-step-2" style="display:none;">
+          <div class="form-group">
+            <label class="form-label bodyXS">Password*</label>
+            <div class="input-wrapper">
+              <input type="password" class="form-input bodyXS" id="regPassword" placeholder="Password">
+              <span class="input-icon" onclick="togglePassword('regPassword', this)">
+                <img src="imgs/openeye.svg" alt="show">
+              </span>
+            </div>
+            <div class="error-message helper-regularS" id="regPasswordError"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label bodyXS">Confirm Password*</label>
+            <div class="input-wrapper">
+              <input type="password" class="form-input bodyXS" id="regConfirm" placeholder="Confirm Password">
+              <span class="input-icon" onclick="togglePassword('regConfirm', this)">
+                <img src="imgs/openeye.svg" alt="show">
+              </span>
+            </div>
+            <div class="error-message helper-regularS" id="regConfirmError"></div>
+          </div>
+        </div>
+        <div class="modal-body" id="reg-step-3" style="display:none;">
+          <div class="form-group">
+            <label class="form-label bodyXS">Username*</label>
+            <input type="text" class="form-input bodyXS" id="regUsername" placeholder="Username">
+            <div class="error-message helper-regularS" id="regUsernameError"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label bodyXS">Upload Avatar</label>
+            <div class="avatar-upload-area" id="avatarDropArea" ondragover="handleDragOver(event)"
+              ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)"
+              onclick="document.getElementById('avatarInput').click()">
+              <div id="avatarPlaceholder">
+                <img src="imgs/upload.svg" alt="upload" class="upload-icon">
+                <p class="bodyXS ">Drag and drop or <span class="upload-link bodyXS">Upload file</span></p>
+                <span class="upload-hint helper-regularS">JPG, PNG or WebP</span>
+              </div>
+              <div id="avatarFilled" style="display:none; ">
+                <img id="avatarPreview" src="" alt="preview">
+                <div class="avatar-file-info">
+                  <span class="helper-regularS avatar-file-name" id="avatarFileName">File_Name.JPG</span>
+                  <span class="avatar-file-size helper-regularS" id="avatarFileSize">Size ~ 50MB</span>
+                  <span class="upload-link avatar-change-btn text-underlineXS"
+                    onclick="event.stopPropagation(); document.getElementById('avatarInput').click()">Change</span>
+                </div>
+              </div>
+            </div>
+            <input type="file" id="avatarInput" accept="image/jpeg,image/png,image/webp" style="display:none;"
+              onchange="handleAvatarChange(this)">
+            <div class="error-message helper-regularS" id="regAvatarError"></div>
+          </div>
+        </div>
+      </div>
+      <button class="btn-primary btn-full bodyS" id="registerNextBtn" onclick="registerNext()">Next</button>
+      <div class="modal-footer">
+        <div class="modal-divider bodyS"><span>or</span></div>
+        <p class="modal-switch bodyXS">
+          Already have an account?
+          <a href="#" onclick="switchModal('registerModal','loginModal')">Log In</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="modal-overlay" id="profileModal" onclick="onProfileOverlayClick(event)">
+    <div class="modal profile-modal">
+      <button class="modal-close" onclick="closeProfileModal()">
+        <span class="material-icons">close</span>
+      </button>
+      <div class="modal-main">
+        <div class="modal-header">
+          <h2 class="heading-2">Profile</h2>
+        </div>
+        <div class="profile-top">
+          <div class="profile-avatar-wrapper">
+            <img id="profileTopAvatar" class="profile-avatar-img" src="imgs/User.svg" alt="avatar">
+            <span class="status-dot" id="topStatusDot"></span>
+          </div>
+          <div class="profile-info">
+            <h3 id="profileUsername" class="heading-4">UserName
+
+            </h3>
+            <span class="profile-status helper-regularS" id="profileStatusText">Profile is incomplete</span>
+          </div>
+        </div>
+        <div class="modal-body profile-form-body">
+          <div class="form-group">
+            <label class="form-label bodyXS">Full Name</label>
+            <div class="input-wrapper">
+              <input type="text" id="profileFullName" class="form-input bodyXS" placeholder="UserName">
+              <span class="input-icon input-icon-static">
+                <img src="imgs/Eye.svg" alt="info" class="info-icon" id="fullNameInfoIcon"
+                  title="Full name should be at least 2 characters and contain only letters and spaces.">
+              </span>
+            </div>
+            <div class="error-message helper-regularS" id="fullNameError"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label bodyXS">Email</label>
+            <div class="input-wrapper">
+              <input type="email" id="profileEmail" class="form-input bodyXS" disabled placeholder="email@">
+              <span class="input-icon input-icon-static input-icon-success">
+                <img src="imgs/cheak.svg" alt="verified" class="verified-icon">
+              </span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group form-group-mobile">
+              <label class="form-label bodyXS">Mobile Number</label>
+              <div class="input-wrapper mobile-wrapper">
+                <div class="mobile-input-group">
+                  <span id="mobilePrefix" class="mobile-prefix bodyXS">+995</span>
+                  <input type="text" id="profileMobile" class="form-input bodyXS mobile-input" placeholder="599 209 820"
+                    maxlength="13" oninput="formatMobileInput(this)" />
+                </div>
+
+                <span class="input-icon input-icon-success" id="mobileSuccessIcon" style="display:none;">
+                  <img src="imgs/cheak.svg" alt="verified" class="verified-icon">
+                </span>
+              </div>
+              <div class="error-message helper-regularS" id="mobileError"></div>
+            </div>
+            <div class="form-group form-group-age">
+              <label class="form-label bodyXS">Age</label>
+              <div class="input-wrapper age-wrapper">
+                <input type="number" id="profileAge" class="form-input bodyXS age-input" min="16" max="120"
+                  placeholder="--">
+                <span class="input-icon input-icon-static age-arrow">
+                  <img src="imgs/dropdown.svg" alt="age info" class="age-info-icon" id="ageInfoIcon"
+                    title="Age should be between 16 and 120.">
+                </span>
+              </div>
+              <div class="error-message helper-regularS" id="ageError"></div>
+            </div>
+
+          </div>
+
+          <div class="form-group">
+            <label class="form-label bodyXS">Upload Avatar</label>
+            <div class="avatar-upload-area" id="profileAvatarDropArea" ondragover="handleProfileDragOver(event)"
+              ondragleave="handleProfileDragLeave(event)" ondrop="handleProfileDrop(event)"
+              onclick="document.getElementById('profileAvatarInput').click()">
+
+              <div id="profileAvatarPlaceholder">
+                <img src="imgs/upload.svg" alt="upload" class="upload-icon">
+
+                <p class="bodyXS">Drag and drop or <span class="upload-link">Upload file</span></p>
+                <span class="upload-hint helper-regularS">JPG, PNG or WebP</span>
+              </div>
+
+              <div id="profileAvatarFilled" style="display:none;">
+                <img id="profileAvatarPreview" alt="preview">
+                <div class="avatar-file-info">
+                  <span class="helper-regularS avatar-file-name" id="profileAvatarFileName"></span>
+                  <span class="avatar-file-size helper-regularS" id="profileAvatarFileSize"></span>
+                  <span class="upload-link text-underlineXS"
+                    onclick="event.stopPropagation(); document.getElementById('profileAvatarInput').click()">
+                    Change
+                  </span>
+                </div>
+              </div>
+
+            </div>
+            <input type="file" id="profileAvatarInput" accept="image/jpeg,image/png,image/webp" style="display:none;"
+              onchange="handleProfileAvatarChange(this)">
+            <div class="error-message helper-regularS" id="profileAvatarError"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <button class="btn-primary btn-full bodyS" id="saveProfileBtn" onclick="updateProfile()">
+        Update Profile
+      </button>
+
+    </div>
+  </div>
+  </div>
+  <section class="container">
+    <div class="breadcrumb" id="breadcrumb">
+      <a href="index.html" class="inactive-link ">Home</a>
+      <img src="imgs/Vector (2).svg">
+      <a class="active-page">Browse </a>
+    </div>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h2 class="heading-1">Filters</h2>
+          <button class="clear-all buttonS" onclick="clearAll()">Clear All Filters <img src="imgs/x small.svg"></button>
+        </div>
+
+        <div class="filter-section filter-categories">
+          <h4 class="body-mediumM">Categories</h4>
+          <div id="categories"></div>
+        </div>
+
+        <div class="filter-section">
+          <h4 class="body-mediumM">Topics</h4>
+          <div id="topics"></div>
+        </div>
+
+        <div class="filter-section">
+          <h4 class="body-mediumM">Instructors</h4>
+          <div id="instructors"></div>
+        </div>
+        <div class="filter-footer">
+          Selected filters: <span id="selectedCount">0</span>
+        </div>
+      </aside>
+      <div class="main">
+        <div class="main-header">
+          <div id="count" class="count bodyS">Loading...</div>
+
+          <div class="sort-wrap bodyS">
+            <span>Sort by:</span>
+
+            <div class="sort-dropdown">
+              <div class="sort-selected bodyS" id="sortSelected">
+                Newest First
+                <img src="imgs/dropdown.svg">
+
+              </div>
+
+
+              <div class="sort-options" id="sortOptions">
+                <div class="sort-option active bodyS" data-value="newest">
+                  Newest First
+
+                </div>
+
+                <div class="sort-option bodyS" data-value="price_asc">
+                  Price: Low to High
+                </div>
+
+                <div class="sort-option bodyS" data-value="price_desc">
+                  Price: High to Low
+                </div>
+
+                <div class="sort-option bodyS" data-value="popular">
+                  Most Popular
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="grid" id="coursesGrid">
+          <div class="loading-state">
+            <div class="spinner"></div> Loading courses...
+          </div>
+        </div>
+        <div class="pagination" id="pagination"></div>
+      </div>
+
+    </div>
+  </section>
+  <footer class="footer-container ">
+      <div class="footer-banner container">
+        <div class="footer-box">
+          <div class="company-info">
+            <div class="compant-intred">
+              <div class="logo">
+                <img src="imgs/footerlogo.svg" alt="logo">
+
+                <p class="bodyXL">Bootcamp</p>
+              </div>
+              <p class="bodyXS">Your learning journey starts here!
+                Browse courses to get started.</p>
+
+            </div>
+            <div class="social-icons">
+              <a href="#"><img src="imgs/facebook.svg" alt="facebook"></a>
+              <a href="#"><img src="imgs/twitter.svg" alt="twitter"></a>
+              <a href="#"><img src="imgs/instagram.svg" alt="instagram"></a>
+              <a href="#"><img src="imgs/linkedin.svg" alt="linkedin"></a>
+              <a href="#"><img src="imgs/youtube.svg" alt="youtube"></a>
+            </div>
+          </div>
+          <div class="footer-list">
+
+            <div class="footer-column">
+              <h4 class="footer-title heading-4">Explore</h4>
+              <ul class="footer-links">
+                <li class="bodyM"><a href="#">Enrolled Courses</a></li>
+                <li class="bodyM"><a href="#">Browse Courses</a></li>
+
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h4 class="footer-title heading-4">Account</h4>
+              <ul class="footer-links">
+                <li class="bodyM"><a href="#">My Profile</a></li>
+
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h4 class="footer-title heading-4">Contact</h4>
+              <ul class="footer-links">
+
+                <li class="bodyM"><a href="#"><img src="imgs/mail.svg" alt="email">contact@company.com</a></li>
+                <li class="bodyM"><a href="#"><img src="imgs/phone.svg" alt="email">(+995) 555 111 222</a></li>
+                <li class="bodyM"><a href="#"><img src="imgs/location.svg" alt="email">Aghmashenebeli St.115</a></li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="footer-end">
+          <p class="bodyM">Copyright © 2026 Redberry International</p>
+          <div class="footer-bottom-links bodyM">
+            <a>All Rights Reserved</a>
+            <span>|</span>
+            <a href="#">Terms and Conditions</a>
+            <span>|</span>
+            <a href="#">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+         <script src="js/utils.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/register.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/updateProfile.js"></script>
+    <script src="js/featuredCourse.js"></script>
+    <script src="js/courseInProgrecc.js"></script>
+    <script src="js/defaultCourseInProg.js"></script>
+    <script src="js/filter.js"></script>
+    <script src="js/courseDetail.js"></script>
+
+</body>
+
+</html>
