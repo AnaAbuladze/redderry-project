@@ -1,5 +1,6 @@
 body {
-    background-color: 2px solid map-get(map-get($greyscale, grey), 100);
+  background:  map-get(map-get($greyscale, grey), 100);
+  overflow-x: hidden;
 
 }
 

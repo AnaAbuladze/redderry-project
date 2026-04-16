@@ -1,0 +1,103 @@
+.footer-container {
+  margin-top: 248px;
+  border-top: 1px solid map-get(map-get($greyscale, grey), 200);
+  box-shadow: 0 0 11.7px rgba(0, 0, 0, 0.04);
+  padding: 80px 0 20px;
+}
+.footer-banner{
+    display: flex;
+    flex-direction: column;
+    gap: 74px;
+}
+
+.footer-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+.company-info {
+  width: 310px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.compant-intred {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.social-icons a img {
+  width: 18px;
+  height: 18px;
+  transition: 0.2s;
+}
+
+
+
+.footer-list {
+  display: flex;
+  gap: 80px;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+}
+
+.footer-title{
+    color: map-get(map-get($brand-Yellow, purple), 800);
+
+}
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+   color: map-get(map-get($greyscale, grey), 500);
+
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.2s;
+}
+
+
+.footer-end{
+       color: map-get(map-get($greyscale, grey), 500);
+       display: flex;
+       justify-content: space-between;
+
+}
+.footer-bottom-links a:nth-of-type(2),
+.footer-bottom-links a:nth-of-type(3) {
+    color: map-get(map-get($brand-Yellow, purple), 500);
+}
+

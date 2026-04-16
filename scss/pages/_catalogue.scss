@@ -1,0 +1,387 @@
+.breadcrumb {
+    padding: 10px 24px;
+    font-family: 'inter-regular';
+    font-size: 18px;
+    line-height: auto;
+    color: map-get(map-get($greyscale, grey), 500);
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+
+#breadcrumb .active-page {
+  color: #000 !important;
+}
+
+.layout {
+    display: flex;
+    gap: 0;
+    gap: 90px;
+    margin: 0 auto
+}
+
+.sidebar {
+    width: 309px;
+    margin-top: 34px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.filter-footer {
+    border-top: 1.5px solid map-get(map-get($greyscale, grey), 300);
+    padding-top: 16px;
+    color: map-get(map-get($greyscale, grey), 300);
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px
+}
+
+
+.clear-all {
+    display: flex;
+    gap: 7px;
+    color: map-get(map-get($greyscale, grey), 400);
+    cursor: pointer;
+
+}
+
+.clear-all:hover {
+    text-decoration: underline
+}
+
+.filter-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-bottom: 24px;
+}
+
+.filter-section+.filter-section {
+    margin-top: 56px;
+}
+
+.filter-categories {
+    margin-top: 24px;
+}
+
+
+.filter-section h4 {
+    color: map-get(map-get($greyscale, grey), 400);
+
+}
+
+#categories,
+#topics,
+#instructors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border: 1px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    color: map-get(map-get($greyscale, grey), 500);
+    background-color: map-get(map-get($greyscale, grey), 50);
+    border-radius: 12px;
+    transition: 0.2s ease;
+    box-sizing: border-box;
+    border: 2px solid map-get(map-get($greyscale, grey), 50)
+}
+
+.filter-btn:hover {
+    background: map-get(map-get($brand-Yellow, purple), 100);
+    border: 2px solid map-get(map-get($brand-Yellow, purple), 100);
+    color: map-get(map-get($brand-Yellow, purple), 600);
+
+
+
+}
+
+.filter-btn.active {
+    background: map-get(map-get($brand-Yellow, purple), 50);
+    border: 2px solid map-get(map-get($brand-Yellow, purple), 600);
+
+    color: map-get(map-get($brand-Yellow, purple), 600);
+}
+
+
+.btn-category {
+    width: calc(50% - 8px);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+
+.btn-instruc {
+    width: 179px;
+    display: flex;
+    gap: 12px;
+}
+
+
+.cat-icon {
+    font-size: 16px;
+}
+
+/* avatar */
+.inst-avatar,
+.inst-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;
+    font-size: 9px;
+    font-weight: 600;
+}
+
+.main {
+    flex: 1;
+    margin-top: 34px;
+}
+
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px
+}
+
+.count {
+    color: map-get(map-get($greyscale, grey), 500);
+
+}
+
+.sort-wrap {
+    border-radius: 10px;
+    padding: 12px 20px;
+    background-color: map-get(map-get($greyscale, grey), 50);
+    cursor: pointer;
+    color: map-get(map-get($greyscale, grey), 500);
+    border-color: 1px solid map-get(map-get($greyscale, grey), 100);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.sort-dropdown {
+    position: relative;
+}
+
+.sort-selected {
+    color: map-get(map-get($brand-Yellow, purple), 500);
+    display: flex;
+    gap: 8px;
+}
+
+.sort-options {
+    position: absolute;
+    top: 50px;
+    width: 221px;
+    right: -20px;
+    background-color: map-get(map-get($greyscale, grey), 50);
+    border-radius: 10px;
+    display: none;
+    z-index: 10;
+  border-color: 1px solid map-get(map-get($greyscale, grey), 100);
+      color: map-get(map-get($greyscale, grey), 500);
+
+
+}
+
+.sort-dropdown.open .sort-options {
+    display: block;
+}
+
+.sort-option {
+    padding: 10px;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.sort-option:hover {
+    background-color: map-get(map-get($brand-Yellow, purple), 100);
+        color: map-get(map-get($brand-Yellow, purple), 500);
+
+}
+
+.sort-option.active {
+        background-color: map-get(map-get($brand-Yellow, purple), 100);
+
+        color: map-get(map-get($brand-Yellow, purple), 500);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px
+}
+
+.card {
+   padding:20px;
+   display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    flex-direction: column;
+    height: 451px;
+    background-color:map-get(map-get($greyscale, grey), 50);
+;
+
+}
+.card-img{
+    border-radius: 10px;
+    object-fit: cover;
+     width: 100%;
+        height: 181px;
+    display: block
+  
+}
+
+.card-info{
+    display: flex;
+    gap: 18px;
+    flex-direction: column;
+}
+.card-detail-indo{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.duration-inst-rating{
+    display: flex;
+    justify-content: space-between;
+
+}
+.duration {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+color: map-get(map-get($greyscale, grey), 300);
+
+}
+
+.divider {
+  width: 2px;
+  height: 14px;
+  border-radius: 100px;
+  background-color: map-get(map-get($greyscale, grey), 300);
+}
+.course-rate{
+    display: flex;
+    gap: 4px;
+    color: map-get(map-get($greyscale, grey), 600);
+
+}
+.card-title{
+        color: map-get(map-get($greyscale, grey), 950);
+}
+
+.card-category{
+    
+display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border: 1px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    color: map-get(map-get($greyscale, grey), 600);
+    background-color: map-get(map-get($greyscale, grey), 100);
+    border-radius: 12px;
+    transition: 0.2s ease;
+    box-sizing: border-box;
+    border: 2px solid map-get(map-get($greyscale, grey), 100)
+}
+.card-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.price-cont{
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    .price{
+            color: map-get(map-get($greyscale, grey), 700);
+
+    }
+    p{
+                    color: map-get(map-get($greyscale, grey), 300);
+
+    }
+}
+.pagination
+{
+     margin-top: 32px;
+    position: relative;
+    left: 31%;
+    display: flex;
+    gap: 8px;
+}
+#pagination button {
+    width: 40px;
+    height: 40px;
+  padding: 8px 13px;
+  border: 1.5px solid   map-get(map-get($greyscale, grey), 200);
+        color: map-get(map-get($brand-Yellow, purple), 500);
+     background-color: map-get(map-get($greyscale, grey), 50);
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+#pagination button.active {
+border:  map-get(map-get($brand-Yellow, purple), 500);
+        background-color: map-get(map-get($brand-Yellow, purple), 600);
+     color: map-get(map-get($greyscale, grey), 50);
+}
+
+#pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+       color: map-get(map-get($greyscale, grey), 200);
+
+}
+.total-price{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 40px;
+           background-color: map-get(map-get($greyscale, grey), 50);
+           margin-top: 40px;
+           border-radius: 12px;
+
+}
+.total{
+    display: flex;
+    justify-content: space-between;
+}
+.upfate-price{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+#enrollBtn{
+    width: 100%;
+    border:  map-get(map-get($brand-Yellow, purple), 200);
+            background-color: map-get(map-get($brand-Yellow, purple), 50);
+        color: map-get(map-get($brand-Yellow, purple), 200);
+        padding:  19px 10px;
+
+
+}

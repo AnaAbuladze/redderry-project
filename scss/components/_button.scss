@@ -60,3 +60,14 @@
       color: map-get(map-get($greyscale, grey), 700);
     }
   }
+.view-button {
+color: map-get(map-get($brand-Yellow, purple), 500);
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border: 2px solid map-get(map-get($brand-Yellow, purple), 300);
+
+  
+}

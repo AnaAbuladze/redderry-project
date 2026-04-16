@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <title>project</title>
 </head>
+
 <body>
   <div class="header-banner">
     <header class="container">
@@ -16,7 +17,7 @@
       </div>
       <nav class="nav-actions bodyL">
         <div class="guest-actions" id="guestActions">
-          <a href="#" class="nav-link">
+          <a href="catalogue.html" class="nav-link">
             <span class="material-icons">auto_awesome</span>
             Browse Courses
           </a>
@@ -27,7 +28,7 @@
         </div>
         <div class="auth-actions" id="authActions" style="display:none;">
           <div class="links">
-            <a href="#" class="nav-link">
+            <a href="catalogue.html" class="nav-link">
               <span class="material-icons">auto_awesome</span>
               Browse Courses
             </a>
@@ -35,11 +36,11 @@
               <span class="material-icons">menu_book</span>
               Enrolled Courses
             </a>
-         <div class="avatar" onclick="openProfileModal()">
-  <img src="imgs/User.svg" alt="user" class="user-img" id="navAvatar">
-  <span class="notification-dot" id="profileIndicator"></span>
-</div>
-        </div>
+            <div class="avatar" onclick="openProfileModal()">
+              <img src="imgs/User.svg" alt="user" class="user-img" id="navAvatar">
+              <span class="notification-dot" id="profileIndicator"></span>
+            </div>
+          </div>
       </nav>
     </header>
   </div>
@@ -140,7 +141,7 @@
               ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)"
               onclick="document.getElementById('avatarInput').click()">
               <div id="avatarPlaceholder">
-              <img src="imgs/upload.svg" alt="upload" class="upload-icon">
+                <img src="imgs/upload.svg" alt="upload" class="upload-icon">
                 <p class="bodyXS ">Drag and drop or <span class="upload-link bodyXS">Upload file</span></p>
                 <span class="upload-hint helper-regularS">JPG, PNG or WebP</span>
               </div>
@@ -170,155 +171,240 @@
       </div>
     </div>
   </div>
-<div class="modal-overlay" id="profileModal" onclick="onProfileOverlayClick(event)">  <div class="modal profile-modal" >
-     <button class="modal-close" onclick="closeProfileModal()">
-      <span class="material-icons">close</span>
-    </button>
-    <div class="modal-main">
-       <div class="modal-header">
-        <h2 class="heading-2">Profile</h2>
-      </div>
-       <div class="profile-top">
-        <div class="profile-avatar-wrapper">
-          <img id="profileTopAvatar" class="profile-avatar-img" src="imgs/User.svg" alt="avatar">
-          <span class="status-dot" id="topStatusDot"></span>
+  <div class="modal-overlay" id="profileModal" onclick="onProfileOverlayClick(event)">
+    <div class="modal profile-modal">
+      <button class="modal-close" onclick="closeProfileModal()">
+        <span class="material-icons">close</span>
+      </button>
+      <div class="modal-main">
+        <div class="modal-header">
+          <h2 class="heading-2">Profile</h2>
         </div>
-        <div class="profile-info">
-          <h3 id="profileUsername" class="heading-4">UserName
+        <div class="profile-top">
+          <div class="profile-avatar-wrapper">
+            <img id="profileTopAvatar" class="profile-avatar-img" src="imgs/User.svg" alt="avatar">
+            <span class="status-dot" id="topStatusDot"></span>
+          </div>
+          <div class="profile-info">
+            <h3 id="profileUsername" class="heading-4">UserName
 
-          </h3>
-          <span class="profile-status helper-regularS" id="profileStatusText">Profile is incomplete</span>
-        </div>
-      </div>
-       <div class="modal-body profile-form-body">
-         <div class="form-group">
-          <label class="form-label bodyXS">Full Name</label>
-          <div class="input-wrapper">
-            <input type="text" id="profileFullName" class="form-input bodyXS" placeholder="UserName">
-            <span class="input-icon input-icon-static">
-            <img src="imgs/Eye.svg" alt="info" class="info-icon" id="fullNameInfoIcon" title="Full name should be at least 2 characters and contain only letters and spaces.">
-            </span>
-          </div>
-          <div class="error-message helper-regularS" id="fullNameError"></div>
-        </div>
-         <div class="form-group">
-          <label class="form-label bodyXS">Email</label>
-          <div class="input-wrapper">
-            <input type="email" id="profileEmail" class="form-input bodyXS" disabled  placeholder="email@">
-            <span class="input-icon input-icon-static input-icon-success">
-              <img src="imgs/cheak.svg" alt="verified" class="verified-icon">
-            </span>
+            </h3>
+            <span class="profile-status helper-regularS" id="profileStatusText">Profile is incomplete</span>
           </div>
         </div>
-         <div class="form-row">
-           <div class="form-group form-group-mobile">
-            <label class="form-label bodyXS">Mobile Number</label>
-     <div class="input-wrapper mobile-wrapper">
-  <div class="mobile-input-group">
-<span id="mobilePrefix" class="mobile-prefix bodyXS">+995</span>
-    <input
-      type="text"
-      id="profileMobile"
-      class="form-input bodyXS mobile-input"
-      placeholder="599 209 820"
-      maxlength="13"
-      oninput="formatMobileInput(this)"
-    />
-  </div>
-
-  <span class="input-icon input-icon-success" id="mobileSuccessIcon" style="display:none;">
-    <img src="imgs/cheak.svg" alt="verified" class="verified-icon">
-  </span>
-</div>
-            <div class="error-message helper-regularS" id="mobileError"></div>
-          </div>
-           <div class="form-group form-group-age">
-            <label class="form-label bodyXS">Age</label>
-            <div class="input-wrapper age-wrapper">
-              <input type="number" id="profileAge" class="form-input bodyXS age-input" min="16" max="120" placeholder="--">
-              <span class="input-icon input-icon-static age-arrow">
-                <img src="imgs/dropdown.svg" alt="age info" class="age-info-icon" id="ageInfoIcon" title="Age should be between 16 and 120.">
+        <div class="modal-body profile-form-body">
+          <div class="form-group">
+            <label class="form-label bodyXS">Full Name</label>
+            <div class="input-wrapper">
+              <input type="text" id="profileFullName" class="form-input bodyXS" placeholder="UserName">
+              <span class="input-icon input-icon-static">
+                <img src="imgs/Eye.svg" alt="info" class="info-icon" id="fullNameInfoIcon"
+                  title="Full name should be at least 2 characters and contain only letters and spaces.">
               </span>
             </div>
-            <div class="error-message helper-regularS" id="ageError"></div>
+            <div class="error-message helper-regularS" id="fullNameError"></div>
           </div>
- 
-        </div>
-
-        <div class="form-group">
-          <label class="form-label bodyXS">Upload Avatar</label>
-          <div class="avatar-upload-area" id="profileAvatarDropArea"
-               ondragover="handleProfileDragOver(event)"
-               ondragleave="handleProfileDragLeave(event)"
-               ondrop="handleProfileDrop(event)"
-               onclick="document.getElementById('profileAvatarInput').click()">
- 
-            <div id="profileAvatarPlaceholder">
-                           <img src="imgs/upload.svg" alt="upload" class="upload-icon">
-
-              <p class="bodyXS">Drag and drop or <span class="upload-link">Upload file</span></p>
-              <span class="upload-hint helper-regularS">JPG, PNG or WebP</span>
+          <div class="form-group">
+            <label class="form-label bodyXS">Email</label>
+            <div class="input-wrapper">
+              <input type="email" id="profileEmail" class="form-input bodyXS" disabled placeholder="email@">
+              <span class="input-icon input-icon-static input-icon-success">
+                <img src="imgs/cheak.svg" alt="verified" class="verified-icon">
+              </span>
             </div>
- 
-            <div id="profileAvatarFilled" style="display:none;">
-              <img id="profileAvatarPreview" alt="preview">
-              <div class="avatar-file-info">
-                <span class="helper-regularS avatar-file-name" id="profileAvatarFileName"></span>
-                <span class="avatar-file-size helper-regularS" id="profileAvatarFileSize"></span>
-                <span class="upload-link text-underlineXS"
-                      onclick="event.stopPropagation(); document.getElementById('profileAvatarInput').click()">
-                  Change
+          </div>
+          <div class="form-row">
+            <div class="form-group form-group-mobile">
+              <label class="form-label bodyXS">Mobile Number</label>
+              <div class="input-wrapper mobile-wrapper">
+                <div class="mobile-input-group">
+                  <span id="mobilePrefix" class="mobile-prefix bodyXS">+995</span>
+                  <input type="text" id="profileMobile" class="form-input bodyXS mobile-input" placeholder="599 209 820"
+                    maxlength="13" oninput="formatMobileInput(this)" />
+                </div>
+
+                <span class="input-icon input-icon-success" id="mobileSuccessIcon" style="display:none;">
+                  <img src="imgs/cheak.svg" alt="verified" class="verified-icon">
                 </span>
               </div>
+              <div class="error-message helper-regularS" id="mobileError"></div>
             </div>
- 
+            <div class="form-group form-group-age">
+              <label class="form-label bodyXS">Age</label>
+              <div class="input-wrapper age-wrapper">
+                <input type="number" id="profileAge" class="form-input bodyXS age-input" min="16" max="120"
+                  placeholder="--">
+                <span class="input-icon input-icon-static age-arrow">
+                  <img src="imgs/dropdown.svg" alt="age info" class="age-info-icon" id="ageInfoIcon"
+                    title="Age should be between 16 and 120.">
+                </span>
+              </div>
+              <div class="error-message helper-regularS" id="ageError"></div>
+            </div>
+
           </div>
-          <input type="file" id="profileAvatarInput"
-                 accept="image/jpeg,image/png,image/webp"
-                 style="display:none;"
-                 onchange="handleProfileAvatarChange(this)">
-          <div class="error-message helper-regularS" id="profileAvatarError"></div>
+
+          <div class="form-group">
+            <label class="form-label bodyXS">Upload Avatar</label>
+            <div class="avatar-upload-area" id="profileAvatarDropArea" ondragover="handleProfileDragOver(event)"
+              ondragleave="handleProfileDragLeave(event)" ondrop="handleProfileDrop(event)"
+              onclick="document.getElementById('profileAvatarInput').click()">
+
+              <div id="profileAvatarPlaceholder">
+                <img src="imgs/upload.svg" alt="upload" class="upload-icon">
+
+                <p class="bodyXS">Drag and drop or <span class="upload-link">Upload file</span></p>
+                <span class="upload-hint helper-regularS">JPG, PNG or WebP</span>
+              </div>
+
+              <div id="profileAvatarFilled" style="display:none;">
+                <img id="profileAvatarPreview" alt="preview">
+                <div class="avatar-file-info">
+                  <span class="helper-regularS avatar-file-name" id="profileAvatarFileName"></span>
+                  <span class="avatar-file-size helper-regularS" id="profileAvatarFileSize"></span>
+                  <span class="upload-link text-underlineXS"
+                    onclick="event.stopPropagation(); document.getElementById('profileAvatarInput').click()">
+                    Change
+                  </span>
+                </div>
+              </div>
+
+            </div>
+            <input type="file" id="profileAvatarInput" accept="image/jpeg,image/png,image/webp" style="display:none;"
+              onchange="handleProfileAvatarChange(this)">
+            <div class="error-message helper-regularS" id="profileAvatarError"></div>
+          </div>
+
         </div>
- 
       </div>
+
+      <button class="btn-primary btn-full bodyS" id="saveProfileBtn" onclick="updateProfile()">
+        Update Profile
+      </button>
+
     </div>
-
-    <button class="btn-primary btn-full bodyS" id="saveProfileBtn" onclick="updateProfile()">
-      Update Profile
-    </button>
- 
   </div>
-</div>
-</div>
-<section>
-  <div class="carousel container">
-  <div id="carouselTrack" class="carousel-track"></div>
-<div class="carousel-btn">
-  <button class="nav prev" onclick="prevSlide()"><img src="imgs/Arrowleft.svg"></button>
-  <button class="nav next" onclick="nextSlide()"><img src="imgs/Arrowright.svg"></button>
-</div>
-<div id="dots" class="dots"></div></div>
-
-</section>
-
- <section class="featured-courses container">
-  <div class="featured-course-title">
-    <h2 class="heading-1">Start Learning Today</h2>
-    <p class="bodyM ">Choose from our most popular courses and begin your journey</p>
   </div>
-    
-<div id="featuredCoursesList"></div>   
- 
-  </section>
-  
-  <script src="js/utils.js"></script>
-  <script src="js/login.js"></script>
-  <script src="js/register.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/updateProfile.js"></script>
-  <script src="js/featuredCourse.js"></script>
+  <section>
+    <div class="carousel container">
+      <div id="carouselTrack" class="carousel-track"></div>
+      <div class="carousel-btn">
+        <button class="nav prev" onclick="prevSlide()"><img src="imgs/Arrowleft.svg"></button>
+        <button class="nav next" onclick="nextSlide()"><img src="imgs/Arrowright.svg"></button>
+      </div>
+      <div id="dots" class="dots"></div>
+    </div>
+    <section class="courses-in-progress container">
+      <div class="courses-in-progress-header">
+        <div class="header-title">
+          <h2 class="heading-1">Continue Learning</h2>
+          <p class="bodyM">Pick up where you left</p>
+        </div>
+        <a href="#" class="view-all-link text-underlineM">See All</a>
+      </div>
+      <div id="inProgressCoursesList" class="in-progress-list"></div>
+    </section>
+    <section class="featured-courses container" id="featuredSection">
+      <div class="featured-course-title">
+        <h2 class="heading-1">Start Learning Today</h2>
+        <p class="bodyM">Choose from our most popular courses</p>
+      </div>
+      <div id="featuredCoursesList"></div>
+    </section>
+    <section class="default-course-learning container" id="defaultCourseLearning">
+      <div class="courses-in-progress-header">
+        <div class="header-title">
+          <h2 class="heading-1">Continue Learning</h2>
+          <p class="bodyM">Pick up where you left</p>
+        </div>
+        <a href="#" class="view-all-link text-underlineM">See All</a>
+      </div>
+
+      <div id="defaultCourseList" class="default-course-list"></div>
+      <div class="loginTab">
+        <div class="alertText">
+          <img src="imgs/lock.svg" alt="info" class="alertIcon">
+          <p class="bodyS">Sign in to track your learning progress</p>
+        </div>
+        <button class="btn-primary buttonS" onclick="openModal('loginModal')">Log In</button>
+      </div>
+    </section>
+    <footer class="footer-container ">
+      <div class="footer-banner container">
+        <div class="footer-box">
+          <div class="company-info">
+            <div class="compant-intred">
+              <div class="logo">
+                <img src="imgs/footerlogo.svg" alt="logo">
+
+                <p class="bodyXL">Bootcamp</p>
+              </div>
+              <p class="bodyXS">Your learning journey starts here!
+                Browse courses to get started.</p>
+
+            </div>
+            <div class="social-icons">
+              <a href="#"><img src="imgs/facebook.svg" alt="facebook"></a>
+              <a href="#"><img src="imgs/twitter.svg" alt="twitter"></a>
+              <a href="#"><img src="imgs/instagram.svg" alt="instagram"></a>
+              <a href="#"><img src="imgs/linkedin.svg" alt="linkedin"></a>
+              <a href="#"><img src="imgs/youtube.svg" alt="youtube"></a>
+            </div>
+          </div>
+          <div class="footer-list">
+
+            <div class="footer-column">
+              <h4 class="footer-title heading-4">Explore</h4>
+              <ul class="footer-links">
+                <li class="bodyM"><a href="#">Enrolled Courses</a></li>
+                <li class="bodyM"><a href="#">Browse Courses</a></li>
+
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h4 class="footer-title heading-4">Account</h4>
+              <ul class="footer-links">
+                <li class="bodyM"><a href="#">My Profile</a></li>
+
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h4 class="footer-title heading-4">Contact</h4>
+              <ul class="footer-links">
+
+                <li class="bodyM"><a href="#"><img src="imgs/mail.svg" alt="email">contact@company.com</a></li>
+                <li class="bodyM"><a href="#"><img src="imgs/phone.svg" alt="email">(+995) 555 111 222</a></li>
+                <li class="bodyM"><a href="#"><img src="imgs/location.svg" alt="email">Aghmashenebeli St.115</a></li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="footer-end">
+          <p class="bodyM">Copyright © 2026 Redberry International</p>
+          <div class="footer-bottom-links bodyM">
+            <a>All Rights Reserved</a>
+            <span>|</span>
+            <a href="#">Terms and Conditions</a>
+            <span>|</span>
+            <a href="#">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/utils.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/register.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/updateProfile.js"></script>
+    <script src="js/featuredCourse.js"></script>
     <script src="js/carosuel.js"></script>
-
+    <script src="js/courseInProgrecc.js"></script>
+    <script src="js/defaultCourseInProg.js"></script>
 </body>
 
 </html>

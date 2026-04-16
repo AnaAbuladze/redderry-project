@@ -21,25 +21,27 @@ function handleLogin() {
 
   if (!valid) return;
 
-  fetch(LOGIN_API, {
-    method: "POST",
-    headers: { "Content-Type": "application/json", "Accept": "application/json" },
-    body: JSON.stringify({ email, password })
+ fetch(LOGIN_API, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "Accept": "application/json"
+  },
+  body: JSON.stringify({ email, password })
+})
+  .then(res => res.json().then(data => ({ ok: res.ok, data })))
+  .then(({ ok, data }) => {
+    console.log("LOGIN RESPONSE:", data); // 👈 აქ სწორია
+
+    if (!ok) {
+      console.log("ERROR RESPONSE:", data);
+      return;
+    }
+
+    saveToken(data);
+    closeModal("loginModal");
+    setAuthUI(true);
   })
-    .then(res => res.json().then(data => ({ ok: res.ok, data })))
-    .then(({ ok, data }) => {
-      if (!ok) {
-        const errs = data.errors || {};
-        if (errs.email)    setError("loginEmail",    "emailError",    errs.email[0]);
-        if (errs.password) setError("loginPassword", "passwordError", errs.password[0]);
-        if (!errs.email && !errs.password) setError("loginPassword", "passwordError", data.message || "Login failed");
-        return;
-      }
-      saveToken(data);
-      closeModal("loginModal");
-      setAuthUI(true);
-    })
-    .catch(() => {
-      setError("loginPassword", "passwordError", "Something went wrong. Please try again.");
-    });
-}
+  .catch(err => {
+    console.log("NETWORK ERROR:", err);
+  })}

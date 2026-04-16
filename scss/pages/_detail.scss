@@ -1,0 +1,171 @@
+main{
+    display: flex;
+   gap: 133px; 
+}
+.course-top{
+    width: 903px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 32px;
+    h1{
+            color: map-get(map-get($greyscale, grey), 900);
+
+    }
+}
+.coursedetails{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.img-durat{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+   .course-img{
+    border-radius: 10px;
+    width: 903px;
+    height: 474px;
+   }
+
+}
+.course-info{
+    display: flex;
+    justify-content: space-between;
+}
+.dev{
+    display: flex;
+    gap:12px ;
+}
+.img-title{
+       display: flex;
+    gap:4px ;
+    align-items: center;
+                color: map-get(map-get($greyscale, grey), 600);
+.rat{
+                    color: map-get(map-get($greyscale, grey), 900);
+ font-family: 'inter-medium';
+    font-size: 14px;
+    line-height: auto;
+}
+}
+.course-description{
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.instructor-info{
+   width: 179px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+        padding: 8px 12px;
+    color: map-get(map-get($greyscale, grey), 500);
+    background-color: map-get(map-get($greyscale, grey), 50);
+    border-radius: 12px;
+     font-family: 'inter-regular';
+    font-size: 16px;
+    line-height: auto;
+
+
+
+    
+    img{
+         width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;
+    font-size: 9px;
+    font-weight: 600;
+    }
+}
+.course-desc-title{
+        color: map-get(map-get($greyscale, grey), 400);
+
+}
+.course-description-text{
+            color: map-get(map-get($greyscale, grey), 600);
+
+}
+.enroll-card{
+    width: 520px;
+   margin-top: 194px; 
+
+}
+.num{
+    padding: 8px 11px;
+    border: 3px solid  map-get(map-get($brand-Yellow, purple), 800);
+    border-radius: 50%;
+    font-size: 10px;
+    color:map-get(map-get($brand-Yellow, purple), 800);
+
+    font-family: 'inter-medium';
+
+}.namesess{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.step-title{
+    display: flex;
+    justify-content: space-between;
+        color:map-get(map-get($brand-Yellow, purple), 800);
+
+}
+.card-ses{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 18px;
+
+}
+.choose-cards{
+background-color: map-get(map-get($greyscale, grey), 50);
+border: 1px solid  map-get(map-get($greyscale, grey), 200);
+    padding: 15px 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    img{
+        width: 26px;
+        height: 26px;
+        margin: auto;
+    }
+
+}
+.choose-card{
+    width: 172px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    background-color: map-get(map-get($greyscale, grey), 50);
+border: 1px solid  map-get(map-get($greyscale, grey), 200);
+    padding: 15px 20px;
+    border-radius: 12px;
+}
+.time{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+  filter: blur(1px);
+}
+
+.locked {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.active {
+  border: 2px solid #4f46e5;
+}
