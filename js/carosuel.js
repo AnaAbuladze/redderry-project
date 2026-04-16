@@ -41,9 +41,9 @@ function renderCarousel() {
           ${item.text ? `<p class="body-lightXL">${item.text}</p>` : ""}
         </div>
 
-        <button onclick="handleButtonClick(${index})" class="buttonM btn-primary">
-          ${item.btn}
-        </button>
+       <button onclick="window.location.href='catalogue.html'" class="buttonM btn-primary">
+  ${item.btn}
+</button>
       </div>
     `;
 

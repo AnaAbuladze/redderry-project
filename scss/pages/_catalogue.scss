@@ -11,7 +11,8 @@
 
 
 #breadcrumb .active-page {
-  color: #000 !important;
+      color: map-get(map-get($brand-Yellow, purple), 600);
+
 }
 
 .layout {
